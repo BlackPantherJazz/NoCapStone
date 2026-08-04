@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import "dotenv/config";
+import venueRoutes from "./routes/venues.js";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -9,6 +10,8 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(cors());         
 app.use(express.json());  
+
+app.use("/api/venues", venueRoutes);
 
 // Test route — just to prove the server is alive
 app.get("/", (req, res) => {
