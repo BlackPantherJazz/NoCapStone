@@ -4,6 +4,7 @@ import cors from "cors";
 import "dotenv/config";
 import venueRoutes from "./routes/venues.js";
 import tourRoutes from "./routes/tours.js";
+import suggestionRoutes from "./routes/suggestions.js";
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -14,6 +15,7 @@ app.use(express.json());
 
 app.use("/api/venues", venueRoutes);
 app.use("/api/tours", tourRoutes);
+app.use("/api/suggestions", suggestionRoutes);
 
 // Test route — just to prove the server is alive
 app.get("/", (req, res) => {
