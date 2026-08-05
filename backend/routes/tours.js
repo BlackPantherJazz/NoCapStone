@@ -1,10 +1,11 @@
 import express from "express";
 import Tour from "../models/Tour.js";
+import { protect, managerOnly } from "../middleware/auth.js";
 
 const router = express.Router();
 
 // CREATE a tour
-router.post("/", async (req, res) => {
+router.post("/", protect, managerOnly ,async (req, res) => {
   try {
     const newTour = await Tour.create(req.body);
     res.status(201).json(newTour);
@@ -37,7 +38,7 @@ router.get("/:id", async (req, res) => {
 });
 
 // UPDATE a tour
-router.put("/:id", async (req, res) => {
+router.put("/:id", protect, managerOnly ,async (req, res) => {
   try {
     const updatedTour = await Tour.findByIdAndUpdate(
       req.params.id,
@@ -54,7 +55,7 @@ router.put("/:id", async (req, res) => {
 });
 
 // DELETE a tour
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", protect, managerOnly ,async (req, res) => {
   try {
     const deletedTour = await Tour.findByIdAndDelete(req.params.id);
     if (!deletedTour) {
