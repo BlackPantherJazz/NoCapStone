@@ -1,11 +1,12 @@
 // routes/venues.js — CRUD endpoints for the venues shelf
 import express from "express";
 import Venue from "../models/Venue.js";
+import { protect, managerOnly } from "../middleware/auth.js";
 
 const router = express.Router();
 
 // CREATE a venue
-router.post("/", async (req, res) => {
+router.post("/", protect, managerOnly, async (req, res) => {
   try {
     const newVenue = await Venue.create(req.body);
     res.status(201).json(newVenue);
@@ -38,7 +39,7 @@ router.get("/:id", async (req, res) => {
 });
 
 // UPDATE a venue
-router.put("/:id", async (req, res) => {
+router.put("/:id", protect, managerOnly, async (req, res) => {
   try {
     const updatedVenue = await Venue.findByIdAndUpdate(
       req.params.id,
@@ -55,7 +56,7 @@ router.put("/:id", async (req, res) => {
 });
 
 // DELETE a venue
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", protect, managerOnly, async (req, res) => {
   try {
     const deletedVenue = await Venue.findByIdAndDelete(req.params.id);
     if (!deletedVenue) {
