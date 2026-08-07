@@ -1,4 +1,6 @@
 # YourTour
+🔗 **Live demo:** [yourtouring.netlify.app](https://yourtouring.netlify.app)
+📦 **Backend API:** [nocapstone.onrender.com](https://nocapstone.onrender.com)
 
 **A full-stack tour management application for artists and their managers.**
 Built with the MERN stack (MongoDB, Express, React, Node.js) — by J & L & B.

@@ -28,7 +28,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-#root { max-width: 920px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+#root { max-width: 1100px; margin: 0 auto; padding: 2rem 2rem 4rem; width: 100%; }
 
 /* NAV — brushed chrome strip */
 nav {
@@ -151,7 +151,14 @@ button:hover { filter: brightness(1.05); }
 button:active { transform: translateY(1px); }
 
 /* LISTS — cards; pink marker for the list, amber for status */
-ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 14px;
+}
 li {
   position: relative;
   display: flex;
