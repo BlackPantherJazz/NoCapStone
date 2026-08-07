@@ -8,13 +8,13 @@
   --pink-dim:#c96f97;
   --amber:   #f0b429;
   --amber-dim:#c98f1c;
+  --lav:     #b9a5e8;
+  --lav-dim: #8f78c9;
   --ink:     #f3eef1;
   --muted:   #a597a3;
   --line:    rgba(245, 163, 199, 0.14);
   --chrome:  linear-gradient(177deg, #f6f8f9 0%, #d2d7d9 42%, #9ba2a5 50%, #c7cccd 58%, #eef1f2 100%);
   --chrome-edge: #7f878a;
-  --lav:     #b9a5e8;
-  --lav-dim: #8f78c9;
 }
 
 * { box-sizing: border-box; }
@@ -28,9 +28,14 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-#root { max-width: 1100px; margin: 0 auto; padding: 2rem 2rem 4rem; width: 100%; }
+#root {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 2rem 4rem;
+  width: 100%;
+}
 
-/* NAV — brushed chrome strip */
+/* NAV — brushed chrome strip, wraps on mobile */
 nav {
   display: flex;
   flex-wrap: wrap;
@@ -43,6 +48,8 @@ nav {
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 2px 8px rgba(0,0,0,0.4);
 }
 nav a {
+  flex: 1 1 auto;
+  text-align: center;
   font-family: 'Space Mono', monospace;
   font-size: 12px;
   letter-spacing: 1.5px;
@@ -54,6 +61,25 @@ nav a {
   transition: background 0.15s;
 }
 nav a:hover { background: rgba(255,255,255,0.4); }
+
+/* WORDMARK — the family in the nav */
+.brand {
+  flex: 0 0 auto;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 2px;
+  padding: 13px 20px;
+  border-right: 1px solid rgba(0,0,0,0.14);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+}
+.brand .j   { color: var(--lav-dim); }
+.brand .l   { color: var(--pink-dim); }
+.brand .b   { color: var(--amber-dim); }
+.brand .amp { color: #5f6a63; }
 
 /* KICKER — mono label above a title, in amber */
 .kicker {
@@ -104,7 +130,7 @@ form {
   padding: 18px;
   margin-bottom: 2rem;
 }
-input {
+input, select {
   font-family: 'Space Mono', monospace;
   font-size: 13px;
   color: var(--ink);
@@ -116,7 +142,10 @@ input {
   transition: border-color 0.15s, box-shadow 0.15s;
 }
 input::placeholder { color: var(--muted); }
-input:focus { border-color: var(--pink); box-shadow: 0 0 0 2px rgba(245,163,199,0.22); }
+input:focus, select:focus {
+  border-color: var(--pink);
+  box-shadow: 0 0 0 2px rgba(245,163,199,0.22);
+}
 
 /* BUTTONS — chrome pills that catch light on hover */
 button {
@@ -151,7 +180,7 @@ button:hover::after { left: 130%; }
 button:hover { filter: brightness(1.05); }
 button:active { transform: translateY(1px); }
 
-/* LISTS — cards; pink marker for the list, amber for status */
+/* LISTS — responsive two-column cards */
 ul {
   list-style: none;
   padding: 0;
@@ -192,24 +221,6 @@ li strong {
   font-weight: 700;
 }
 li button { margin-left: 8px; }
-
-/* WORDMARK — three people, three colors */
-.brand {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  font-size: 15px;
-  letter-spacing: 2px;
-  padding: 13px 20px;
-  border-right: 1px solid rgba(0,0,0,0.14);
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  white-space: nowrap;
-}
-.brand .j   { color: var(--lav-dim); }
-.brand .l   { color: var(--pink-dim); }
-.brand .b   { color: var(--amber-dim); }
-.brand .amp { color: #5f6a63; }
 
 /* HOME — landing screen */
 .hero { padding: 1rem 0 2.5rem; }
