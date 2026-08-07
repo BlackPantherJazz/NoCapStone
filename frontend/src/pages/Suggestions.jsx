@@ -77,9 +77,30 @@ function Suggestions() {
 
   return (
     <div>
-        <p className="kicker">Inbox // Suggestions</p>
+      <p className="kicker">Inbox // Suggestions</p>
       <h1>Suggestions</h1>
 
+      {/* Not signed in — prompt to log in or register */}
+      {!token && (
+        <div
+          style={{
+            background: "var(--base-2)",
+            border: "1px solid var(--line)",
+            borderRadius: "16px",
+            padding: "18px",
+            marginBottom: "2rem",
+            color: "var(--muted)",
+            fontFamily: "'Space Mono', monospace",
+            fontSize: "14px",
+          }}
+        >
+          You need to be signed in to submit a suggestion.{" "}
+          <a href="/login" style={{ color: "var(--pink)" }}>Log in</a> or{" "}
+          <a href="/register" style={{ color: "var(--amber)" }}>register</a>.
+        </div>
+      )}
+
+      {/* Artist — the create form */}
       {role === "artist" && (
         <form onSubmit={handleAdd}>
           <input
