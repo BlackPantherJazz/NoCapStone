@@ -9,7 +9,7 @@ function Venues() {
   const role = localStorage.getItem("role");
   const token = localStorage.getItem("token");
 
-  // Load venues once on page load
+  // Load all venues from the API when the page first mounts
   useEffect(() => {
     const fetchVenues = async () => {
       try {
@@ -23,7 +23,7 @@ function Venues() {
     fetchVenues();
   }, []);
 
-  // CREATE a venue (manager only) — flashes the token
+  // Create a venue (manager only) — sends the JWT so the protected route accepts it
   const handleAdd = async (e) => {
     e.preventDefault();
     try {
