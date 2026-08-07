@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500&display=swap');
+
+:root {
+  --base:    #17121a;
+  --base-2:  #211a25;
+  --base-3:  #2c2230;
+  --pink:    #f5a3c7;
+  --pink-dim:#c96f97;
+  --amber:   #f0b429;
+  --amber-dim:#c98f1c;
+  --ink:     #f3eef1;
+  --muted:   #a597a3;
+  --line:    rgba(245, 163, 199, 0.14);
+  --chrome:  linear-gradient(177deg, #f6f8f9 0%, #d2d7d9 42%, #9ba2a5 50%, #c7cccd 58%, #eef1f2 100%);
+  --chrome-edge: #7f878a;
+  --lav:     #b9a5e8;
+  --lav-dim: #8f78c9;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(1100px 620px at 50% -12%, #3a2440 0%, var(--base) 60%);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root { max-width: 920px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+/* NAV — brushed chrome strip */
+nav {
+  display: flex;
+  align-items: stretch;
+  background: var(--chrome);
+  border: 1px solid var(--chrome-edge);
+  border-radius: 12px;
+  margin-bottom: 2.5rem;
+  overflow: hidden;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 2px 8px rgba(0,0,0,0.4);
+}
+nav a {
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #16211c;
+  text-decoration: none;
+  padding: 13px 18px;
+  border-right: 1px solid rgba(0,0,0,0.14);
+  transition: background 0.15s;
+}
+nav a:hover { background: rgba(255,255,255,0.4); }
+
+/* KICKER — mono label above a title, in amber */
+.kicker {
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--amber-dim);
+  margin: 0 0 6px;
+}
+
+/* HEADINGS — chrome lettering that slowly catches light */
+h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.4rem, 6.5vw, 3.8rem);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin: 0 0 1.75rem;
+  width: fit-content;
+  background: var(--chrome);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: chromeShift 8s linear infinite;
+}
+@keyframes chromeShift { to { background-position: 220% center; } }
+h1::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 3px;
+  margin-top: 14px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--pink), var(--amber));
+}
+
+/* FORMS — dark panel */
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  background: var(--base-2);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  margin-bottom: 2rem;
+}
+input {
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  color: var(--ink);
+  background: var(--base);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 11px 14px;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+input::placeholder { color: var(--muted); }
+input:focus { border-color: var(--pink); box-shadow: 0 0 0 2px rgba(245,163,199,0.22); }
+
+/* BUTTONS — chrome pills that catch light on hover */
+button {
+  position: relative;
+  overflow: hidden;
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #16211c;
+  background: var(--chrome);
+  border: 1px solid var(--chrome-edge);
+  border-radius: 999px;
+  padding: 10px 20px;
+  cursor: pointer;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.65), 0 1px 3px rgba(0,0,0,0.35);
+  transition: transform 0.08s, filter 0.15s;
+}
+button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,0.9), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.55s ease;
+}
+button:hover::after { left: 130%; }
+button:hover { filter: brightness(1.05); }
+button:active { transform: translateY(1px); }
+
+/* LISTS — cards; pink marker for the list, amber for status */
+ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+li {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  background: var(--base-2);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 15px 18px 15px 24px;
+  font-size: 15px;
+}
+li::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 58%;
+  background: var(--pink);
+  border-radius: 999px;
+}
+li strong {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--amber);
+  font-weight: 700;
+}
+li button { margin-left: 8px; }
+
+/* WORDMARK — three people, three colors */
+.brand {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 2px;
+  padding: 13px 20px;
+  border-right: 1px solid rgba(0,0,0,0.14);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+}
+.brand .j   { color: var(--lav-dim); }
+.brand .l   { color: var(--pink-dim); }
+.brand .b   { color: var(--amber-dim); }
+.brand .amp { color: #5f6a63; }

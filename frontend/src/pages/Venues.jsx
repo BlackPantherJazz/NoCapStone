@@ -69,6 +69,7 @@ function Venues() {
 
   return (
     <div>
+        <p className="kicker">Roster // Venues</p>
       <h1>Venues</h1>
 
       {role === "manager" && (
