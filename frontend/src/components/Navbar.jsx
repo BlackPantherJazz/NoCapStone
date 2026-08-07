@@ -4,7 +4,8 @@ function Navbar() {
   return (
     <nav>
       <Link to="/">Home</Link> | <Link to="/venues">Venues</Link> |{" "}
-      <Link to="/tours">Tours</Link> | <Link to="/login">Login</Link>
+      <Link to="/tours">Tours</Link> | <Link to="/login">Login</Link> |{" "}
+      <Link to="/suggestions">Suggestions</Link> 
     </nav>
   );
 }

@@ -27,6 +27,7 @@ function Login() {
       // Hold the token so it survives a refresh
       localStorage.setItem("token", data.token);
       localStorage.setItem("role", data.user.role);
+      localStorage.setItem("userId", data.user._id);
 
       // Send them into the app
       navigate("/venues");

@@ -5,9 +5,12 @@ import { protect, managerOnly } from "../middleware/auth.js";
 const router = express.Router();
 
 // CREATE a suggestion
-router.post("/", protect, managerOnly ,async (req, res) => {
+router.post("/", protect, async (req, res) => {
   try {
-    const newSuggestion = await Suggestion.create(req.body);
+    const newSuggestion = await Suggestion.create({
+      text: req.body.text,
+      artist: req.user.id, // the logged-in user, taken from their token
+    });
     res.status(201).json(newSuggestion);
   } catch (error) {
     res.status(400).json({ message: error.message });
