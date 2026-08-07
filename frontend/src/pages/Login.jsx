@@ -38,7 +38,7 @@ function Login() {
 
   return (
     <div>
-        <p className="kicker">Roster // Login</p>
+        <p className="kicker">Access // Sign in</p>
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
         <input

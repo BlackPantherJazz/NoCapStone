@@ -69,7 +69,7 @@ function Tours() {
 
   return (
     <div>
-        <p className="kicker">Roster // Tours</p>
+        <p className="kicker">Schedule // Tours</p>
       <h1>Tours</h1>
 
       {role === "manager" && (

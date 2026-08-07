@@ -77,7 +77,7 @@ function Suggestions() {
 
   return (
     <div>
-        <p className="kicker">Roster // Suggestions</p>
+        <p className="kicker">Inbox // Suggestions</p>
       <h1>Suggestions</h1>
 
       {role === "artist" && (
