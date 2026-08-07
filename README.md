@@ -164,6 +164,8 @@ Base URL: `http://localhost:5001/api`
 
 This project was planned and tracked using **Jira** with a Scrum board (sprints and a backlog).
 
+https://techforhen.atlassian.net/jira/software/projects/SCRUM/boards/1?filter=&groupBy=none&atlOrigin=eyJpIjoiYTRjY2JiYzRiODE1NGQxZDhjZjUxODZmMDZkOTI5NGUiLCJwIjoiaiJ9
+
 ![Jira board](./frontend/docs/jira-board.png)
 
 ---
