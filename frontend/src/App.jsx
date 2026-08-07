@@ -5,6 +5,7 @@ import Venues from "./pages/Venues.jsx";
 import Tours from "./pages/Tours.jsx";
 import Login from "./pages/Login.jsx";
 import Suggestions from "./pages/Suggestions.jsx";
+import Register from "./pages/Register.jsx";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/tours" element={<Tours />} />
         <Route path="/login" element={<Login />} />
         <Route path="/suggestions" element={<Suggestions />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </div>
   );
