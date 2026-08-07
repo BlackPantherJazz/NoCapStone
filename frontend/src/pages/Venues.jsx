@@ -13,7 +13,7 @@ function Venues() {
   useEffect(() => {
     const fetchVenues = async () => {
       try {
-        const res = await fetch("http://localhost:5001/api/venues");
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/venues`);
         const data = await res.json();
         setVenues(data);
       } catch (error) {
@@ -27,7 +27,7 @@ function Venues() {
   const handleAdd = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:5001/api/venues", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/venues`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -52,7 +52,7 @@ function Venues() {
   // DELETE a venue (manager only) — flashes the token
   const handleDelete = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5001/api/venues/${id}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/venues/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });

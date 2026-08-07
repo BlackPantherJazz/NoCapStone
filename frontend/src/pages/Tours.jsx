@@ -13,7 +13,7 @@ function Tours() {
   useEffect(() => {
     const fetchTours = async () => {
       try {
-        const res = await fetch("http://localhost:5001/api/tours");
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/tours`);
         const data = await res.json();
         setTours(data);
       } catch (error) {
@@ -27,7 +27,7 @@ function Tours() {
   const handleAdd = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:5001/api/tours", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/tours`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -52,7 +52,7 @@ function Tours() {
   // DELETE a tour (manager only)
   const handleDelete = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5001/api/tours/${id}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/tours/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });

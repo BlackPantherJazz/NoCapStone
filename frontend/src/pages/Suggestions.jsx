@@ -11,7 +11,7 @@ function Suggestions() {
   // Pulled out so we can re-run it after any change
   const fetchSuggestions = async () => {
     try {
-      const res = await fetch("http://localhost:5001/api/suggestions");
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/suggestions`);
       const data = await res.json();
       setSuggestions(data);
     } catch (error) {
@@ -27,7 +27,7 @@ function Suggestions() {
   const handleAdd = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:5001/api/suggestions", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/suggestions`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -50,7 +50,7 @@ function Suggestions() {
   // MANAGER approves or rejects
   const handleStatus = async (id, status) => {
     try {
-      const res = await fetch(`http://localhost:5001/api/suggestions/${id}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/suggestions/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
