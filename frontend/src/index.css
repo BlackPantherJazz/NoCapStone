@@ -202,3 +202,70 @@ li button { margin-left: 8px; }
 .brand .l   { color: var(--pink-dim); }
 .brand .b   { color: var(--amber-dim); }
 .brand .amp { color: #5f6a63; }
+
+/* HOME — landing screen */
+.hero { padding: 1rem 0 2.5rem; }
+.hero .kicker { margin-bottom: 14px; }
+.hero h1 { margin-bottom: 0; }
+.hero .byline {
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 16px 0 0;
+}
+.hero .byline .j { color: var(--lav-dim); }
+.hero .byline .l { color: var(--pink-dim); }
+.hero .byline .b { color: var(--amber-dim); }
+.hero .lede {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink);
+  max-width: 46ch;
+  margin: 1.75rem 0 0;
+}
+.hero .lede em { color: var(--pink); font-style: normal; }
+
+.entry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  margin: 2.5rem 0;
+}
+.entry {
+  display: block;
+  text-decoration: none;
+  background: var(--base-2);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px;
+  transition: border-color 0.15s, transform 0.12s;
+}
+.entry:hover { border-color: var(--pink); transform: translateY(-2px); }
+.entry .num {
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: var(--amber);
+}
+.entry .name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 8px 0 4px;
+}
+.entry .desc { font-size: 14px; color: var(--muted); margin: 0; }
+
+.dedication {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+}
+.dedication .heart { color: var(--pink); }
