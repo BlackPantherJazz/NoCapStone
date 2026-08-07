@@ -1,5 +1,5 @@
 # YourTour
-🔗 **Live demo:** [yourtouring.netlify.app](https://yourtouring.netlify.app)
+🔗 **Live demo:** [yourtourbro.netlify.app](https://yourtourbro.netlify.app)
 📦 **Backend API:** [nocapstone.onrender.com](https://nocapstone.onrender.com)
 
 **A full-stack tour management application for artists and their managers.**
