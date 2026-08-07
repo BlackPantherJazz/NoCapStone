@@ -33,6 +33,7 @@ body {
 /* NAV — brushed chrome strip */
 nav {
   display: flex;
+  flex-wrap: wrap;
   align-items: stretch;
   background: var(--chrome);
   border: 1px solid var(--chrome-edge);
