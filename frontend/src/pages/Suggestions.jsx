@@ -130,4 +130,4 @@ function Suggestions() {
   );
 }
 
-export default Suggestions;p
+export default Suggestions;
