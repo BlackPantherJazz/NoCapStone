@@ -13,7 +13,7 @@ function Home() {
         <p className="lede">
           Tour management for artists and their managers. Managers run the{" "}
           <em>roster, venues, and tours</em> — artists send suggestions from the
-          road. One source of truth, on and off the stage.
+          road. Built by a musician who's tired of planning tours in group chats.
         </p>
       </div>
 
