@@ -11,7 +11,7 @@ export const protect = (req, res, next) => {
 
     const token = authHeader.split(" ")[1];
 
-    //Throws if the token is fake or expired
+
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
     // Attach the user's info to the request so later code can use it
